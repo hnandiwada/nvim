@@ -12,6 +12,8 @@ command! -bang -nargs=* FZFRg
       \      . shellescape(<q-args>), 1, <bang>0
       \ )
 
+command! -bang FZFWorkspaceFiles call fzf#vim#files('~/workspace', <bang>0)
+
 augroup config#fzf
   autocmd!
   autocmd FileType fzf set laststatus=0 noruler
@@ -19,6 +21,8 @@ augroup config#fzf
 augroup END
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+let g:fzf_preview_window = []
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
