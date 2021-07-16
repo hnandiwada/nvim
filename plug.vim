@@ -86,7 +86,7 @@ Plug 'tommcdo/vim-exchange'
 " }
 
 " General -- Helpful generic tools with no dependencies {
-" project configuration via 'projections'
+" project configuration via 'projections' - :A, :AV etc
 Plug 'tpope/vim-projectionist'
 
 " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
