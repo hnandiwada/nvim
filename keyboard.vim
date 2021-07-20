@@ -93,14 +93,12 @@ let g:leader_key_map.t = {
 
 let g:leader_key_map.f = {
       \ 'name': '+files',
-      \ 'f': [':FZFWorkspaceFiles',          'File Search in Workspace'],
+      \ 'f': [':FZFFiles',          'File Search in Opened Directory'],
+      \ '-': [':FZFWorkspaceFiles',          'File Search in Workspace'],
       \ 'o': [':FZFBuffers',        'Open Buffer Search'],
       \ 'm': [':FZFHistory',        'Recent Files Search'],
       \ '.': ['<c-^>',                'Goto Last Buffer'],
       \ }
-
-nmap <silent> <leader>f- :execute(':FZFFiles ' . expand('%:h'))<CR>
-let g:leader_key_map.f['-'] = 'File Browser in Current Directory'
 
 let g:leader_key_map.h = {
       \ 'name': '+hunks',
