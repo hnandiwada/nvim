@@ -1,14 +1,15 @@
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.sass-cache,node_modules,build} --type f --hidden --no-ignore'
+  let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.sass-cache,node_modules,build,out} --type f --hidden --no-ignore'
 elseif executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!out/*"'
+'
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
 command! -bang -nargs=* FZFRg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '
+      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" ---glob "!out/*" -color "always" '
       \      . shellescape(<q-args>), 1, <bang>0
       \ )
 
