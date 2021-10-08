@@ -229,5 +229,7 @@ xmap ga <Plug>(LiveEasyAlign)
 nmap ]c <Plug>(GitGutterNextHunk)
 nmap [c <Plug>(GitGutterPrevHunk)
 
+" highlight text and move it with <C-j> etc
+let g:move_key_modifier = 'C'
 " }}}
 
