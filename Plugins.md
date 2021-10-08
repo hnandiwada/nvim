@@ -57,6 +57,7 @@ Table of Contents
          * [tpope/vim-dispatch](#tpopevim-dispatch)
          * [kassio/neoterm](#kassioneoterm)
          * [romainl/vim-qf](#romainlvim-qf)
+         * [preservim/nerdtree](#preservim/nerdtree)
 
 <!-- Added by: luan, at: 2018-04-26T07:32-07:00 -->
 
@@ -388,5 +389,8 @@ Wrapper of some vim/neovim's :terminal functions.
 Tame the quickfix window. `:Reject` to filter out lines, `:Keep` to filter in
 and `:Restore` to revert to the original contents.
 
+### [`preservim/nerdtree`](https://github.com/preservim/nerdtree)
+
+`\` toggles a file system explorer.
 ![vim-qf](https://camo.githubusercontent.com/f141b57c21397b8245afd4cf4448c749f2e971a7/68747470733a2f2f726f6d61696e6c2e6769746875622e696f2f76696d2d71662f66696c7465722e676966)
 <!--}-->

@@ -312,8 +312,6 @@ Plug 'kana/vim-textobj-fold'
 
 Plug 'preservim/nerdtree'
 " }
-nnoremap \ :NERDTreeToggle %<CR>
-let NERDTreeShowHidden=1
 
 " Load user plugins
 runtime! user/plug.vim
