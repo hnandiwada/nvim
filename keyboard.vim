@@ -115,6 +115,7 @@ let g:leader_key_map.g = {
       \ 'a': ['<Plug>(GitGutterStageHunk)',   'Git Add'],
       \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
       \ 'c': [':Gcommit',    'Git Commit'],
+      \ 'p': [':Gpush',    'Git Push'],
       \ 'l': [':FZFCommits',    'Commit Log'],
       \ 'b': [':Gblame',    'Git Blame'],
       \ }
