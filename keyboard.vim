@@ -108,11 +108,16 @@ let g:leader_key_map.h = {
       \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
       \ }
 
-let g:leader_key_map.g = { 'name': '+git' }
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gc :FZFCommits<CR>
-nnoremap <silent> <leader>gk :FZFBCommits<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
+let g:leader_key_map.g = {
+      \ 'name': '+git',
+      \ 's': [':Gstatus',   'Git Status'],
+      \ 'd': ['<Plug>(GitGutterPreviewHunk)', 'Git Diff'],
+      \ 'a': ['<Plug>(GitGutterStageHunk)',   'Git Add'],
+      \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
+      \ 'c': [':Gcommit',    'Git Commit'],
+      \ 'l': [':FZFCommits',    'Commit Log'],
+      \ 'b': [':Gblame',    'Git Blame'],
+      \ }
 
 let g:leader_key_map.s = {
       \ 'name': '+search',
