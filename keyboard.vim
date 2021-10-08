@@ -111,7 +111,7 @@ let g:leader_key_map.h = {
 let g:leader_key_map.g = { 'name': '+git' }
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :FZFCommits<CR>
-nnoremap <silent> <leader>gk :FZFBCommitss<CR>
+nnoremap <silent> <leader>gk :FZFBCommits<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 
 let g:leader_key_map.s = {
