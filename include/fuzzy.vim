@@ -1,7 +1,7 @@
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.sass-cache,node_modules,build,out} --type f --hidden --no-ignore'
+  let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.sass-cache,node_modules,build,out,.vscode-test} --type f --hidden --no-ignore'
 elseif executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!out/*"'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!out/*" --glob "!.vscode-test/*"'
 '
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
