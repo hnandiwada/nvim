@@ -94,6 +94,7 @@ let g:leader_key_map.t = {
 let g:leader_key_map.f = {
       \ 'name': '+files',
       \ 'f': [':FZFFiles',          'File Search in Opened Directory'],
+      \ 'F': [':FZFAllFiles',          'File Search in Opened Directory (no exclusions)'],
       \ '-': [':FZFWorkspaceFiles',          'File Search in Workspace'],
       \ 'o': [':FZFBuffers',        'Open Buffer Search'],
       \ 'm': [':FZFHistory',        'Recent Files Search'],
