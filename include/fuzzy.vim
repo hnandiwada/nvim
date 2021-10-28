@@ -14,11 +14,10 @@ command! -bang -nargs=* FZFRg
 
 command! -bang FZFWorkspaceFiles call fzf#vim#files('~/workspace', <bang>0)
 
-command! -bang -nargs=* FZFAllFiles
-      \ call fzf#vim#grep(
-      \   'rg --files --hidden --follow'
-      \      . shellescape(<q-args>), 1, <bang>0
-      \ )
+command! -bang -nargs=* FZFAllFiles call fzf#run(fzf#wrap(
+      \   {'source': 'rg --files --hidden --follow --no-ignore'},
+      \     <bang>0
+      \ ))
 
 augroup config#fzf
   autocmd!
