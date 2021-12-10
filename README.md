@@ -70,7 +70,7 @@ Once you have that setup, all you have to do is clone this config in the right
 spot:
 
 ```bash
-git clone https://github.com/luan/nvim ~/.config/nvim
+git clone https://github.com/hnandiwada/nvim ~/.config/nvim
 ```
 
 Plugins will be automatically downloaded and setup as necessary.
