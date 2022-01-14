@@ -1,7 +1,7 @@
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={.git,.sass-cache,node_modules,build,out,.vscode-test} --type f --hidden --no-ignore'
+  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out} --type f --no-ignore --strip-cwd-prefix'
 elseif executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!out/*" --glob "!.vscode-test/*"''
+  let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!node_modules/*" --glob "!out/*" ''
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
@@ -15,7 +15,19 @@ command! -bang -nargs=* FZFRg
 command! -bang FZFWorkspaceFiles call fzf#vim#files('~/workspace', <bang>0)
 
 command! -bang -nargs=* FZFAllFiles call fzf#run(fzf#wrap(
-      \   {'source': 'rg --files --hidden --follow --no-ignore'},
+      \   {'source': 'fd --type f --hidden --no-ignore --strip-cwd-prefix', 'options': '--prompt="all pwd/"'},
+      \     <bang>0
+      \ ))
+
+command! -bang -complete=dir -nargs=* FZFAllWorkspaceFiles call fzf#run(fzf#wrap(
+      \   {'source': 'fd --type f --hidden --no-ignore --strip-cwd-prefix', 'dir': '~/workspace', 'options': '--prompt="all ~/workspace/"'},
+      \     <bang>0
+      \ ))
+
+command! -bang FZFHomeFiles call fzf#vim#files('~', <bang>0)
+
+command! -bang -complete=dir -nargs=* FZFAllHomeFiles call fzf#run(fzf#wrap(
+      \   {'source': 'fd --type f --hidden --no-ignore --strip-cwd-prefix', 'dir': '~', 'options': '--prompt="all ~/"'},
       \     <bang>0
       \ ))
 

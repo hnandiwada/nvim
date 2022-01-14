@@ -55,9 +55,9 @@ let g:gitgutter_map_keys = 0
 let g:dispatch_no_maps = 1
 
 " Current file's path in command mode
-cnoremap <expr> %% expand('%:h').'/'
+" cnoremap <expr> %% expand('%:h').'/'
 
-nnoremap <silent> <c-p> :FZFWorkspaceFiles<CR>
+nnoremap <silent> <c-p> :FZFFiles<CR>
 
 " Leader mappings {{{
 " Leader is <Space>
@@ -94,8 +94,11 @@ let g:leader_key_map.t = {
 let g:leader_key_map.f = {
       \ 'name': '+files',
       \ 'f': [':FZFFiles',          'File Search in Opened Directory'],
-      \ 'F': [':FZFAllFiles',          'File Search in Opened Directory (no exclusions)'],
-      \ '-': [':FZFWorkspaceFiles',          'File Search in Workspace'],
+      \ 'F': [':FZFAllFiles',          'File Search in Opened Directory (all)'],
+      \ 'w': [':FZFWorkspaceFiles',          'File Search in Workspace'],
+      \ 'W': [':FZFAllWorkspaceFiles',          'File Search in Workspace (all)'],
+      \ '-': [':FZFHomeFiles',          'File Search in Home'],
+      \ '_': [':FZFAllHomeFiles',          'File Search in Home (all)'],
       \ 'o': [':FZFBuffers',        'Open Buffer Search'],
       \ 'm': [':FZFHistory',        'Recent Files Search'],
       \ '.': ['<c-^>',                'Goto Last Buffer'],
@@ -111,13 +114,13 @@ let g:leader_key_map.h = {
 
 let g:leader_key_map.g = {
       \ 'name': '+git',
-      \ 's': [':Gstatus',   'Git Status'],
+      \ 's': [':Git',   'Git Status'],
       \ 'd': ['<Plug>(GitGutterPreviewHunk)', 'Git Diff'],
       \ 'a': ['<Plug>(GitGutterStageHunk)',   'Git Add Hunk'],
       \ '.': [':!git add .',   'Git Add .'],
       \ 'f': [':Gwrite',   'Git Add File'],
       \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
-      \ 'c': [':Gcommit',    'Git Commit'],
+      \ 'c': [':Git commit',    'Git Commit'],
       \ 'p': [':Gpush',    'Git Push'],
       \ 'l': [':FZFCommits',    'Commit Log'],
       \ 'b': [':Gblame',    'Git Blame'],
