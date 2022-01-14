@@ -392,5 +392,7 @@ and `:Restore` to revert to the original contents.
 ### [`preservim/nerdtree`](https://github.com/preservim/nerdtree)
 
 `\` toggles a file system explorer.
+'i' and 's' on a node opens them in a new horizontal or vertical split.
+'m' opens the menu for more options.
 ![vim-qf](https://camo.githubusercontent.com/f141b57c21397b8245afd4cf4448c749f2e971a7/68747470733a2f2f726f6d61696e6c2e6769746875622e696f2f76696d2d71662f66696c7465722e676966)
 <!--}-->
