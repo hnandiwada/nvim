@@ -121,9 +121,9 @@ let g:leader_key_map.g = {
       \ 'f': [':Gwrite',   'Git Add File'],
       \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
       \ 'c': [':Git commit',    'Git Commit'],
-      \ 'p': [':Gpush',    'Git Push'],
+      \ 'p': [':Git push',    'Git Push'],
       \ 'l': [':FZFCommits',    'Commit Log'],
-      \ 'b': [':Gblame',    'Git Blame'],
+      \ 'b': [':Git blame',    'Git Blame'],
       \ }
 
 let g:leader_key_map.s = {
@@ -191,9 +191,15 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" gG goes to global def
+nnoremap gG :only<bar>vsplit<CR>gD
+" open in new split with gD
+nnoremap gD :only<bar>vsplit<CR>gd
+" g* searches under cursor
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(LiveEasyAlign)
+" TODO investigate
 
 " These unfortunately would make it so defaults don't work, so we can't yet
 " have a menu for non leader mappings.
