@@ -1,5 +1,5 @@
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out} --type f --no-ignore --strip-cwd-prefix'
+  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out,venv} --type f --no-ignore --strip-cwd-prefix'
 elseif executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!node_modules/*" --glob "!out/*" ''
 elseif executable('ag')
