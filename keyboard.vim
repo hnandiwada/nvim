@@ -58,6 +58,12 @@ let g:dispatch_no_maps = 1
 " cnoremap <expr> %% expand('%:h').'/'
 
 nnoremap <silent> <c-p> :FZFFiles<CR>
+" Bind ctrl-n to open FZF window in vsplit
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-n': 'vsplit'
+      \ }
 
 " Leader mappings {{{
 " Leader is <Space>
