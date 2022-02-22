@@ -197,10 +197,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" gG goes to global def
-nnoremap gG :only<bar>vsplit<CR>gD
+nmap <silent> gG <Plug>(coc-declaration)
 " open in new split with gD
-nnoremap gD :only<bar>vsplit<CR>gd
+nmap <silent> gD :call CocAction('jumpDefinition', 'vsplit')<CR>
 " g* searches under cursor
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
