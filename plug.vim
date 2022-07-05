@@ -311,6 +311,8 @@ Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-fold'
 
 Plug 'preservim/nerdtree'
+
+Plug 'github/copilot.vim'
 " }
 
 " Load user plugins
