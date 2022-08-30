@@ -1,14 +1,14 @@
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out,venv,dist,__pycache__} --type f --no-ignore --strip-cwd-prefix'
+  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out,venv,dist,__pycache__,*.so} --type f --no-ignore --strip-cwd-prefix'
 elseif executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!node_modules/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*"''
+  let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!node_modules/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*", --glob "!*.so"''
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
 command! -bang -nargs=* FZFRg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*" --color "always" '
+      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*" --glob "!*.so" --color "always" '
       \      . shellescape(<q-args>), 1, <bang>0
       \ )
 
