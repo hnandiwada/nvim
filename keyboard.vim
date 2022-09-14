@@ -13,8 +13,13 @@ nmap <silent> <M-p> <Plug>(ale_previous_wrap)
 nmap <silent> <M-n> <Plug>(ale_next_wrap)
 
 " Eanble completion with tab/shift-tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+" Use enter for copilot
+imap <silent><script><expr> <CR> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 
 " Extra commentary mappings
 xmap <c-_>  <Plug>Commentary

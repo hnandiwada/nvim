@@ -20,6 +20,7 @@
   "solargraph.definitions": true,
   "solargraph.references": true,
   "suggest.enablePreselect": false,
+  "suggest.noselect": true,
   "yaml.validate": false,
   "go.goplsOptions": {
     "completeUnimported": true
