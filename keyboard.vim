@@ -131,8 +131,10 @@ let g:leader_key_map.g = {
       \ '.': [':!git add .',   'Git Add .'],
       \ 'f': [':Gwrite',   'Git Add File'],
       \ 'u': ['<Plug>(GitGutterUndoHunk)',    'Undo Hunk'],
-      \ 'c': [':Git commit',    'Git Commit'],
-      \ 'p': [':Git push',    'Git Push'],
+      \ 'c': [':Git commit',    'Commit'],
+      \ 'C': [':Git commit --amend',   'Commit Amend'],
+      \ 'p': [':Git push',    'Push'],
+      \ 'P': [':Git push --force',    'Force Push'],
       \ 'l': [':FZFCommits',    'Commit Log'],
       \ 'b': [':Git blame',    'Git Blame'],
       \ }
