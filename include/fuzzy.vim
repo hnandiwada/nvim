@@ -1,14 +1,17 @@
+let to_ignore = ['.git', 'node_modules', 'build', 'out', 'venv', 'dist', '__pycache__', '*.so', 'yarn.lock', 'package-lock.json', 's_*.py', 'serverless_sdk', 'tmp-serverless.yml']
+let globs = map(copy(to_ignore), 'printf(" --glob !%s", v:val)')
 if executable('fd')
-  let $FZF_DEFAULT_COMMAND = 'fd --exclude={node_modules,build,out,venv,dist,__pycache__,*.so,yarn.lock,s_*.py,serverless_sdk} --type f --no-ignore --strip-cwd-prefix'
+  let exclusion = join(to_ignore, ",")
+  let $FZF_DEFAULT_COMMAND = printf('fd --exclude={%s} --type f --no-ignore --strip-cwd-prefix', exclusion)
 elseif executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!node_modules/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*", --glob "!*.so" --glob "!yarn.lock" --glob "!s_*.py" --glob "!serverless_sdk"'
+  let $FZF_DEFAULT_COMMAND = printf('rg --files --follow %s', globs)
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
 command! -bang -nargs=* FZFRg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!out/*" --glob "!dist/*" --glob "!__pycache__/*" --glob "!*.so" --glob "!yarn.lock" --glob "!s_*.py" --glob "!serverless_sdk" --color "always" '
+      \   printf('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow %s --color "always" ', globs)
       \      . shellescape(<q-args>), 1, <bang>0
       \ )
 
