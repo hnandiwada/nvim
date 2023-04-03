@@ -19,6 +19,8 @@ inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " Use enter for copilot
 imap <silent><script><expr> <CR> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+" Copilot only supports node 16 and 17 on M1
+let g:copilot_node_command = "/opt/homebrew/Cellar/node@16/16.20.0/bin/node"
 
 
 " Extra commentary mappings
