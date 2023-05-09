@@ -1,4 +1,4 @@
-let to_ignore = ['.git', 'node_modules', 'build', 'out', 'venv', 'dist', '__pycache__', '*.so', 'yarn.lock', 'package-lock.json', 's_*.py', 'serverless_sdk', 'tmp-serverless.yml']
+let to_ignore = ['.git', 'node_modules', 'build', 'out', 'venv', 'dist', '__pycache__', '*.so', 'yarn.lock', 'package-lock.json', 's_*.py', 'serverless_sdk', 'tmp-serverless.yml', 'cdk.out']
 let globs = map(copy(to_ignore), 'printf(" --glob !%s", v:val)')
 if executable('fd')
   let exclusion = join(to_ignore, ",")
