@@ -1,6 +1,8 @@
 let s:projections = {
       \ '*.py': {'type': 'python', 'alternate': 'test/units/{}_test.py'},
       \ 'test/units/*_test.py': {'type': 'python', 'alternate': '{}.py'},
+      \ 'integrations/*/integration.py': {'type': 'python', 'alternate': 'test/integrations/{}_test.py'},
+      \ 'test/integrations/*_test.py': {'type': 'python', 'alternate': 'integrations/{}/integration.py'},
       \ }
 
 function! s:ProjectionistDetect() abort
