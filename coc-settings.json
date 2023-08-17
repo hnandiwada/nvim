@@ -8,7 +8,8 @@
     "elixir",
     "go",
     "python",
-    "rust"
+    "rust",
+    "typescript"
   ],
   "python.formatting.provider": "black",
   "solargraph.completion": true,
