@@ -3,3 +3,4 @@ if !exists('g:colors_name')
   set background=dark
   colorscheme onedark
 endif
+highlight WinSeparator guifg=#646d82
