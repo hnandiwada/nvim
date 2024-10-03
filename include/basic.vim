@@ -53,7 +53,7 @@ set undoreload=10000      " Maximum number lines to save for undo on a buffer re
 set noshowmode              " Hide current mode in command-line (shown by lightline)
 set wildmode=list:longest   " Use emacs-style tab completion in command mode
 
-set fillchars=vert:\│,stl:\ ,stlnc:\
+set fillchars=vert:│,stl:\ ,stlnc:\
 
 " Encoding & file formats
 set fileencoding=utf-8
