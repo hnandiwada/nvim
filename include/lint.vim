@@ -29,8 +29,13 @@ let g:ale_linters = {
 \   'go': ['golangci-lint'],
 \   'typescript': ['typecheck'],
 \   'javascript': ['eslint'],
+\   'python': ['ruff'],
 \   'ruby': ['rubocop', 'ruby'],
 \   'proto': [],
+\}
+
+let g:ale_fixers = {
+\   'python': ['ruff'],
 \}
 
 " This gets around typecheck errors for types defined in other files in the
