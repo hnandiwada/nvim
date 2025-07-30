@@ -16,3 +16,6 @@ vim.opt.splitright = true
 -- Always open horizontal splits below the current window
 vim.opt.splitbelow = true
 
+-- Case insensitive search, but case sensitive if uppercase letters are used
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
