@@ -34,16 +34,9 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", "<Tab>", ">gv")
 vim.keymap.set("v", "<S-Tab>", "<gv")
 
--- Save on Enter if buffer is normal
-local function should_save_on_enter()
-  return vim.api.nvim_buf_get_name(0) ~= "swoopBuf" and vim.bo.buftype == ""
-end
+-- Save on Enter
 vim.keymap.set("n", "<CR>", function()
-  if should_save_on_enter() then
-    return ":w<CR>"
-  else
-    return "<CR>"
-  end
+  return ":w<CR>"
 end, { expr = true, silent = true })
 
 -- Emmet leader
@@ -60,7 +53,6 @@ vim.keymap.set("n", "<M-q>", ":Sayonara<CR>", { silent = true })
 vim.keymap.set("v", "Y", '"+y')
 
 -- Disable plugin default mappings
-vim.g.swoopUseDefaultKeyMap = 0
 vim.g.gitgutter_map_keys = 0
 vim.g.dispatch_no_maps = 1
 
