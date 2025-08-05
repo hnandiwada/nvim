@@ -63,6 +63,15 @@ vim.g.fzf_action = {
   ["ctrl-n"] = "vsplit",
 }
 
+-- restore default quickfix behavior ? 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true })
+  end,
+})
+
+
 -- Coc.nvim goto mappings
 vim.keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
 vim.keymap.set("n", "gy", "<Plug>(coc-type-definition)", { silent = true })

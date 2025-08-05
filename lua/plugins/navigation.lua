@@ -79,7 +79,27 @@ return {
       vim.api.nvim_create_user_command("FZFRg", function(opts)
         local args = table.concat(opts.fargs, " ")
         local cmd = [[rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" ]] .. args
-        vim.fn["fzf#vim#grep"](cmd, 1, opts.bang == "!", {})
+
+        local spec = vim.fn["fzf#vim#with_preview"]({
+          source = cmd,
+          options = '--prompt="rg> " --expect=ctrl-n',
+        })
+
+        spec["sink*"] = function(lines)
+          if not lines or #lines == 0 then
+            return
+          end
+          local action = lines[1]
+          local file_line = lines[2] or lines[1]
+          local file, lnum = file_line:match("([^:]+):(%d+)")
+          if action == "ctrl-n" then
+            vim.cmd("vsplit +" .. lnum .. " " .. vim.fn.fnameescape(file))
+          else
+            vim.cmd("edit +" .. lnum .. " " .. vim.fn.fnameescape(file))
+          end
+        end
+
+        vim.fn["fzf#run"](spec)
       end, { bang = true, nargs = "*" })
 
       vim.api.nvim_create_user_command("FZFFiles", function()
@@ -164,10 +184,6 @@ return {
 
   -- FZF Vim bindings
   { "junegunn/fzf.vim", lazy = false },
-
-  -- Grepper / CtrlSF
-  { "mhinz/vim-grepper" },
-  { "dyng/ctrlsf.vim" },
 
   -- Vinegar
   { "tpope/vim-vinegar" },

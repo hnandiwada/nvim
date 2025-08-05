@@ -5,9 +5,13 @@ vim.g.maplocalleader = ","
 -- Capture the directory where Neovim was launched (fixes FZF PWD issue)
 local startup_cwd = vim.loop.cwd()
 vim.opt.autochdir = false
-vim.api.nvim_create_autocmd("VimEnter", {
+
+-- Force cwd to stay at startup_cwd no matter what
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged", "BufEnter" }, {
   callback = function()
-    vim.cmd("cd " .. startup_cwd)
+    if vim.loop.cwd() ~= startup_cwd then
+      vim.cmd("silent! cd " .. startup_cwd)
+    end
   end,
 })
 

@@ -1,27 +1,32 @@
 {
-  "diagnostic.displayByAle": false,
   "languageserver": {
     "ruff": {
-      "filetypes": [
-        "python"
-      ],
-      "command": "ruff-lsp"
+      "filetypes": ["python"],
+      "command": "ruff-lsp",
+      "settings": {
+        "args": ["--ignore", "E712"]
+      }
     }
   },
   "yaml.validate": false,
-  "python.linting.ruffEnabled": true,
   "suggest.enablePreselect": false,
   "suggest.noselect": true,
+  "python.linting.ruffEnabled": true,
   "python.linting.enabled": true,
+  "python.formatting.provider": "ruff",
+  "python.analysis.typeCheckingMode": "stric",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUndefinedVariable": "error",
+    "reportIncompatibleMethodOverride": "none"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.linting.ruffPath": "ruff",
   "coc.preferences.messageLevel": "error",
   "inlayHint.enable": false,
-  "python.formatting.provider": "ruff",
   "diagnostic.enable": true,
+  "diagnostic.displayByAle": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "typescript"
-  ],
-  "python.analysis.typeCheckingMode": "off",
-  "python.analysis.autoImportCompletions": true,
-  "python.linting.ruffPath": "ruff"
+  ]
 }
