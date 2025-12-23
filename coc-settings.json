@@ -11,16 +11,28 @@
   "yaml.validate": false,
   "suggest.enablePreselect": false,
   "suggest.noselect": true,
-  "python.linting.ruffEnabled": true,
-  "python.linting.enabled": true,
-  "python.formatting.provider": "ruff",
-  "python.analysis.typeCheckingMode": "stric",
+  // Disable duplicate Ruff CLI linting
+  "python.linting.enabled": false,
+  "python.linting.ruffEnabled": false,
+  // Format with ruff via LSP (not CLI)
+  "python.formatting.provider": "none",
+  // Pyright config
+  "python.analysis.typeCheckingMode": "strict",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportUndefinedVariable": "error",
-    "reportIncompatibleMethodOverride": "none"
+    "reportUnusedVariable": "none", // ruff handles this
+    "reportIncompatibleMethodOverride": "none",
+    "reportUnknownVariableType": "none",
+    "reportAttributeAccessIssue": "error",
+    "reportMissingTypeArgument": "none",
+    "reportUnknownArgumentType": "none",
+    "reportMissingParameterType": "none",
+    "reportUnknownParameterType": "none",
+    "reportUnknownMemberType": "none",
+    "reportUnknownLambdaType": "none"
   },
   "python.analysis.autoImportCompletions": true,
-  "python.linting.ruffPath": "ruff",
+  // Preferences
   "coc.preferences.messageLevel": "error",
   "inlayHint.enable": false,
   "snippets.ultisnips.enable": false,
@@ -31,3 +43,4 @@
     "typescript"
   ]
 }
+
