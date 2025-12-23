@@ -23,6 +23,7 @@
   "python.linting.ruffPath": "ruff",
   "coc.preferences.messageLevel": "error",
   "inlayHint.enable": false,
+  "snippets.ultisnips.enable": false,
   "diagnostic.enable": true,
   "diagnostic.displayByAle": false,
   "coc.preferences.formatOnSaveFiletypes": [
