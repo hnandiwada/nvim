@@ -68,11 +68,33 @@ return {
       local function fzf_files(dir)
         local real_dir = vim.fn.fnamemodify(dir, ":p")
         local display_dir = homeify(real_dir)
+        local exclusion = table.concat(to_ignore, ",")
+        local source = string.format(
+          'cd %s && fd --exclude={%s} --type f --no-ignore --strip-cwd-prefix',
+          vim.fn.shellescape(real_dir), exclusion
+        )
 
-        vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
-          dir = real_dir,
-          options = '--prompt="' .. display_dir .. '/"',
-        }))
+        local wrapped = vim.fn["fzf#wrap"]({
+          source = source,
+          options = '--prompt="' .. display_dir .. '" --expect=ctrl-n',
+        })
+
+        wrapped["sink*"] = function(lines)
+          if not lines or #lines == 0 then
+            return
+          end
+          local action = lines[1]
+          local file = lines[2] or lines[1]
+          local full_path = real_dir .. file
+
+          if action == "ctrl-n" then
+            vim.cmd("vsplit " .. vim.fn.fnameescape(full_path))
+          else
+            vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+          end
+        end
+
+        vim.fn["fzf#run"](wrapped)
       end
 
       -- Custom commands with consistent cwd + ~ display
@@ -161,11 +183,30 @@ return {
       end, { bang = true })
 
       vim.api.nvim_create_user_command("FZFAllWorkspaceFiles", function()
-        vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
-          source = "fd --type f --hidden --no-ignore --strip-cwd-prefix",
-          dir = home .. "/workspace",
-          options = '--prompt="all ~/workspace/"',
-        }))
+        local ws_dir = vim.fn.fnamemodify(home .. "/workspace", ":p")
+        local source = string.format(
+          'cd %s && fd --type f --hidden --no-ignore --strip-cwd-prefix',
+          vim.fn.shellescape(ws_dir)
+        )
+
+        local wrapped = vim.fn["fzf#wrap"]({
+          source = source,
+          options = '--prompt="all ~/workspace/" --expect=ctrl-n',
+        })
+
+        wrapped["sink*"] = function(lines)
+          if not lines or #lines == 0 then return end
+          local action = lines[1]
+          local file = lines[2] or lines[1]
+          local full_path = ws_dir .. file
+          if action == "ctrl-n" then
+            vim.cmd("vsplit " .. vim.fn.fnameescape(full_path))
+          else
+            vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+          end
+        end
+
+        vim.fn["fzf#run"](wrapped)
       end, { bang = true })
 
       vim.api.nvim_create_user_command("FZFHomeFiles", function()
@@ -173,11 +214,30 @@ return {
       end, { bang = true })
 
       vim.api.nvim_create_user_command("FZFAllHomeFiles", function()
-        vim.fn["fzf#run"](vim.fn["fzf#wrap"]({
-          source = "fd --type f --hidden --no-ignore --strip-cwd-prefix",
-          dir = home,
-          options = '--prompt="all ~/"',
-        }))
+        local home_dir = vim.fn.fnamemodify(home, ":p")
+        local source = string.format(
+          'cd %s && fd --type f --hidden --no-ignore --strip-cwd-prefix',
+          vim.fn.shellescape(home_dir)
+        )
+
+        local wrapped = vim.fn["fzf#wrap"]({
+          source = source,
+          options = '--prompt="all ~/" --expect=ctrl-n',
+        })
+
+        wrapped["sink*"] = function(lines)
+          if not lines or #lines == 0 then return end
+          local action = lines[1]
+          local file = lines[2] or lines[1]
+          local full_path = home_dir .. file
+          if action == "ctrl-n" then
+            vim.cmd("vsplit " .. vim.fn.fnameescape(full_path))
+          else
+            vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+          end
+        end
+
+        vim.fn["fzf#run"](wrapped)
       end, { bang = true })
     end
   },
