@@ -19,8 +19,8 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged", "BufEnter" }, {
 vim.g.netrw_keepdir = 0
 vim.g.startify_change_to_vcs_root = 0
 
-vim.g.coc_node_path = vim.fn.expand("~/.nvm/versions/node/v18.20.8/bin/node") -- update path
-
+-- vim.g.coc_node_path = vim.fn.expand("~/.nvm/versions/node/v18.20.8/bin/node") -- update path
+--
 -- Bootstrap Lazy.nvim BEFORE config files
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

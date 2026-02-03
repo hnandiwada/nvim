@@ -41,7 +41,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("nvim-treesitter.install").prefer_git = true
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.config").setup({
         ensure_installed = { "python", "lua", "json", "bash", "markdown" },
         highlight = { enable = true },
         indent = { enable = true },
