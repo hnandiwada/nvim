@@ -9,8 +9,8 @@ return {
       local default_config = {
         languageserver = {
           ruff = {
-            command = "ruff-lsp",
-            filetypes = { "python" }
+            filetypes = { "python" },
+            command = "ruff"
           }
         },
         ["python.formatting.provider"] = "ruff"

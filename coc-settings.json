@@ -2,7 +2,7 @@
   "languageserver": {
     "ruff": {
       "filetypes": ["python"],
-      "command": "ruff-lsp",
+      "command":[ "ruff", "server"],
       "settings": {
         "args": ["--ignore", "E712"]
       }
