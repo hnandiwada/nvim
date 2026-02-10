@@ -2,22 +2,27 @@
   "languageserver": {
     "ruff": {
       "filetypes": ["python"],
-      "command":[ "ruff", "server"],
-      "settings": {
-        "args": ["--ignore", "E712"]
+      "command": "ruff",
+      "args": ["server"],
+      "initializationOptions": {
+        "settings": {
+          "lint": {
+            "ignore": ["E712"]
+          }
+        }
       }
     }
   },
   "yaml.validate": false,
   "suggest.enablePreselect": false,
   "suggest.noselect": true,
+  "python.analysis.autoSearchPaths": true,
   // Disable duplicate Ruff CLI linting
   "python.linting.enabled": false,
   "python.linting.ruffEnabled": false,
-  // Format with ruff via LSP (not CLI)
-  "python.formatting.provider": "none",
-  // Pyright config
+    // Pyright config
   "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.extraPaths": ["."],
   "python.analysis.diagnosticSeverityOverrides": {
     "reportUndefinedVariable": "error",
     "reportUnusedVariable": "none", // ruff handles this
@@ -37,7 +42,6 @@
   "inlayHint.enable": false,
   "snippets.ultisnips.enable": false,
   "diagnostic.enable": true,
-  "diagnostic.displayByAle": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "typescript"

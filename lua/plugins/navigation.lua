@@ -158,7 +158,7 @@ return {
         local wrapped = vim.fn["fzf#wrap"]({
           source = source,
           dir = real_cwd,
-          options = '--prompt="all ' .. display_dir .. '/" --expect=ctrl-n',
+          options = '--prompt="all ' .. display_dir .. '" --expect=ctrl-n',
         })
 
         wrapped["sink*"] = function(lines)
