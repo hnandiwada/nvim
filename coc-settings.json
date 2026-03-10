@@ -44,7 +44,18 @@
   "diagnostic.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
-    "typescript"
-  ]
+    "typescript",
+    "json",
+    "javascript"
+  ],
+  "prettier.enable": true,
+  "prettier.formatterPriority": 1,
+  "prettier.statusItemText": "P",
+  "[json]": {
+    "coc.preferences.formatProvider": "prettier"
+  },
+  "[javascript]": {
+    "coc.preferences.formatProvider": "prettier"
+  }
 }
 
