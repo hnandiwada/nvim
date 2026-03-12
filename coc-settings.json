@@ -48,6 +48,11 @@
     "json",
     "javascript"
   ],
+  "eslint.enable": true,
+  "eslint.useFlatConfig": false,
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  },
   "prettier.enable": true,
   "prettier.formatterPriority": 1,
   "prettier.statusItemText": "P",

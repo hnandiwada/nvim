@@ -4,7 +4,7 @@ return {
     branch = "release",
     build = "npm ci",
     config = function()
-      vim.g.coc_global_extensions = { "coc-pyright" }
+      vim.g.coc_global_extensions = { "coc-pyright", "coc-eslint" }
     end
   },
   {
@@ -14,7 +14,7 @@ return {
     config = function()
       require("nvim-treesitter.install").prefer_git = true
       require("nvim-treesitter.config").setup({
-        ensure_installed = { "python", "lua", "json", "bash", "markdown" },
+        ensure_installed = { "python", "lua", "json", "bash", "markdown", "javascript", "typescript", "tsx" },
         highlight = { enable = true },
         indent = { enable = true },
       })
