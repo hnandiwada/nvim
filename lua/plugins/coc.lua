@@ -4,7 +4,7 @@ return {
     branch = "release",
     build = "npm ci",
     config = function()
-      vim.g.coc_global_extensions = { "coc-pyright", "coc-eslint" }
+      vim.g.coc_global_extensions = { "coc-pyright", "coc-eslint", "coc-tsserver" }
     end
   },
   {
