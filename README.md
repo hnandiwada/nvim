@@ -7,3 +7,4 @@ Key commands include:
 - `cd ~/.config/coc/extensions && npm install coc-prettier`
 - `:Lazy sync`
 - `git clone git@github.com:hnandiwada/nvim.git ~/.config/nvim`
+- `brew install --cask font-jetbrains-mono-nerd-font`
