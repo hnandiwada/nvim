@@ -9,14 +9,14 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
     config = function()
-      require("nvim-treesitter.install").prefer_git = true
-      require("nvim-treesitter.config").setup({
-        ensure_installed = { "python", "lua", "json", "bash", "markdown", "javascript", "typescript", "tsx" },
-        highlight = { enable = true },
-        indent = { enable = true },
+      require("nvim-treesitter").install({ "python", "json", "bash", "markdown", "javascript", "typescript", "tsx" })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "python", "json", "bash", "markdown", "javascript", "typescript", "tsx" },
+        callback = function() vim.treesitter.start() end,
       })
     end
   }
