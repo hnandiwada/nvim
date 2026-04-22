@@ -16,6 +16,8 @@
   "yaml.validate": false,
   "suggest.enablePreselect": false,
   "suggest.noselect": true,
+  "python.pythonPath": ".venv/bin/python",
+  "python.venvPath": ".",
   "python.analysis.autoSearchPaths": true,
   // Disable duplicate Ruff CLI linting
   "python.linting.enabled": false,
@@ -34,7 +36,8 @@
     "reportMissingParameterType": "none",
     "reportUnknownParameterType": "none",
     "reportUnknownMemberType": "none",
-    "reportUnknownLambdaType": "none"
+    "reportUnknownLambdaType": "none",
+    "reportMissingTypeStubs": "none"
   },
   "python.analysis.autoImportCompletions": true,
   // Preferences
