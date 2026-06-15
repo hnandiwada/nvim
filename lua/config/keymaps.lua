@@ -39,6 +39,15 @@ vim.keymap.set("n", "<CR>", function()
   return ":w<CR>"
 end, { expr = true, silent = true })
 
+-- Auto-save on window/focus switch
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost", "BufLeave" }, {
+  callback = function()
+    if vim.bo.modified and vim.bo.buftype == "" and vim.api.nvim_buf_get_name(0) ~= "" then
+      vim.cmd("silent! write")
+    end
+  end,
+})
+
 -- Emmet leader
 vim.g.user_emmet_leader_key = "<leader>e"
 vim.g.user_emmet_mode = "nv"
