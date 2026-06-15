@@ -18,7 +18,8 @@ return {
       local to_ignore = {
         ".git", "node_modules", "build", "out", "venv", "dist",
         "__pycache__", "*.so", "yarn.lock", "package-lock.json",
-        "s_*.py", "serverless_sdk", "tmp-serverless.yml", "cdk.out"
+        "s_*.py", "serverless_sdk", "tmp-serverless.yml", "cdk.out",
+        "tmp"
       }
 
       -- fd/rg defaults
